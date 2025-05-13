@@ -1,0 +1,17 @@
+.cart-container {
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: rgb(244, 243, 243);
+  border-radius: 10px;
+
+}
+
+.cart-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 15px;
+  color: #333;
+}
