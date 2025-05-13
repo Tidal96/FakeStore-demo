@@ -1,0 +1,12 @@
+.search-input {
+  background-color: #fff;
+  border: none;
+}
+
+.search-input:focus {
+  outline: none;
+}
+
+.search-input::placeholder {
+  color: #999;
+}
