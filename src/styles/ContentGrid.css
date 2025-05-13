@@ -1,0 +1,25 @@
+.content {
+  width: 100%;
+  margin: auto;
+  padding: 20px 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: rgb(244, 243, 243);
+  border-radius: 10px;
+  padding: 35px 20px;
+
+}
+
+.content-header {
+  width: 100%;
+  text-align: center;
+  margin-right: 100px;
+  color: gray;
+  padding: 20px 0 10px 40px;
+}
+
+.cart-header {
+  padding-top: 20px;
+  color: #232023;
+  font-weight: 600;
+}
