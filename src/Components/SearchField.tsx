@@ -1,9 +1,10 @@
 import TextField from "@mui/material/TextField";
-import style from "../styles/SearchField.module.css";
+import style from "../Styles/searchfield.module.css";
 
 type SearchProps = {
   setSearchQuery: (query: string) => void;
   searchQuery: string;
+
 };
 
 const SearchField = ({ searchQuery, setSearchQuery }: SearchProps) => {
