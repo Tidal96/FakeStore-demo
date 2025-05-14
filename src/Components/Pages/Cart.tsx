@@ -2,12 +2,14 @@ import Menu from "../molecule/Menu";
 import { useEffect, useState } from "react";
 import ContentGrid from "../ContentGrid";
 import Item from "../Item";
-import "../../styles/Cart.css";
+import "../../Styles/cart.css";
+
 type Cartprops = {
   id: number;
   title: string;
   price: number;
   description: string;
+  
 };
 function Cart() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
@@ -33,9 +35,9 @@ function Cart() {
         selectedItem={selectedItem}
         setSelectedItem={setSelectedItem}
         showDropdownMenu={false}
+        showSearchField={false}
       ></Menu>
       <div className="cart-container">
-
         <ContentGrid title="Cart">
           {list.length > 0 ? (
             list.map((row: any, index: number) => (
