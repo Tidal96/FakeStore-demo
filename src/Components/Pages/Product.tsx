@@ -2,7 +2,7 @@ import Menu from "../molecule/Menu";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Snackbar, Alert } from "@mui/material";
-import "../../styles/Product.css";
+import "../../Styles/product.css";
 
 interface DataItem {
     id: number;
@@ -59,6 +59,9 @@ export default function Product() {
                 setSearchQuery={setSearchQuery}
                 selectedItem={selectedItem}
                 setSelectedItem={setSelectedItem}
+                showDropdownMenu={false}
+                showSearchField={false}
+
             ></Menu>
 
             {data && (

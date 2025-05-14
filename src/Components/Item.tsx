@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "../styles/Item.css";
+import "../Styles/item.css";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { IconButton } from "@mui/material";
 interface DataItem {

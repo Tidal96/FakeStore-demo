@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo } from "react";
 import Menu from "./molecule/Menu";
 import Item from "../Components/Item";
 import ContentGrid from "./ContentGrid";
-
+import "../Styles/homepage.css";
 interface DataItem {
   id: number;
   title: string;

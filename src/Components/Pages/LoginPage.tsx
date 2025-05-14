@@ -1,6 +1,6 @@
 import { Stack, TextField } from "@mui/material";
 import Button from "@mui/material/Button";
-import "../../Styles/Login.css";
+import "../../Styles/login.css";
 function LoginPage() {
   return (
     <div className="login">
