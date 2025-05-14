@@ -1,6 +1,5 @@
 .container {
     background-color: #f7f7f7;
-    ;
     margin: 0px;
     padding: 50px;
     border-radius: 5px;
@@ -19,5 +18,26 @@
 .price {
     margin-top: 20px;
     padding-left: 10px;
+    color: #ee8915;
+}
+
+.product-container.dark {
+    background-color: #121212;
+    color: #f1f1f1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+.product-container.dark .container {
+    background-color: #1e1e1e;
+    color: #f1f1f1;
+}
+
+.container.dark {
+    background-color: #2a2a2a;
+    color: #f1f1f1;
+}
+
+.product-container.dark .price {
     color: #ee8915;
 }

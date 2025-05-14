@@ -3,7 +3,8 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { Button, Snackbar, Alert } from "@mui/material";
 import "../../Styles/product.css";
-
+import { useContext } from "react";
+import { appContext } from "../../App";
 interface DataItem {
     id: number;
     title: string;
@@ -19,7 +20,7 @@ export default function Product() {
     const [error, setError] = useState(null);
     const { productId } = useParams<{ productId: string }>();
     const [open, setOpen] = useState(false);
-
+    const { darkMode } = useContext(appContext)
     async function fetchProduct() {
         try {
             const response = await fetch(
@@ -66,8 +67,8 @@ export default function Product() {
 
             {data && (
 
-                <div className="product-container">
-                    <div className="container">
+                <div className={`product-container ${darkMode ? "dark" : ""}`}>
+                    <div className={`container ${darkMode ? "dark" : ""}`}>
                         <div key={data.id}>
                             <h3>{data.title}</h3>
                             <p>{data.description}</p>
