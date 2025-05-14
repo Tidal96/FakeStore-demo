@@ -2,6 +2,9 @@ import { useNavigate } from "react-router-dom";
 import "../Styles/item.css";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { IconButton } from "@mui/material";
+import { useContext } from "react";
+import { appContext } from "../App";
+
 interface DataItem {
   id: number;
   img: string;
@@ -21,6 +24,7 @@ type itemProps = {
   onDelete?: (index: number) => void;
   data: DataItem[];
 };
+
 function Item({
   id,
   img,
@@ -33,15 +37,17 @@ function Item({
   data,
 }: itemProps) {
   const navigate = useNavigate();
+  const { darkMode } = useContext(appContext);
+
   const handleClickItem = () => {
     const foundItem = data.find((item) => item.id === id);
-    console.log(foundItem);
+
     navigate(`/product/${id}`);
   };
 
   return (
     <>
-      <table className="content-item">
+      <table className={`content-item ${darkMode ? "dark" : ""}`}>
         <tr>
           <td onClick={handleClickItem}>
             <img src={img} alt={title} style={{ backgroundColor: "transparent" }} />

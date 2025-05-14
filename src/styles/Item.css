@@ -3,7 +3,6 @@
   border-collapse: collapse;
   margin-bottom: 10px;
   table-layout: fixed;
-
 }
 
 .content-item tr {
@@ -14,6 +13,16 @@
   display: table-row;
 }
 
+.content-item.dark {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.content-item.dark tr {
+  background-color: #2d2d2d;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
 .content-item td {
   padding: 10px;
   vertical-align: middle;
@@ -22,11 +31,13 @@
   border: none;
 }
 
+.content-item.dark td {
+  color: #f0f0f0;
+}
 
 .content-item td:nth-child(1) {
   width: 7%;
 }
-
 
 .content-item td:nth-child(2) {
   width: 15%;
@@ -38,6 +49,9 @@
   padding-right: 50px;
 }
 
+.content-item.dark td:nth-child(2) {
+  color: #ffffff;
+}
 
 .content-item td:nth-child(3) {
   width: 23%;
@@ -45,11 +59,19 @@
   color: #666;
 }
 
+.content-item.dark td:nth-child(3) {
+  color: #bbbbbb;
+}
 
 .content-item td:nth-child(4) {
   width: 22%;
   font-size: 14px;
   font-weight: 500;
+  color: #ff9800;
+}
+
+
+.content-item.dark td:nth-child(4) {
   color: #ff9800;
 }
 
@@ -60,11 +82,14 @@
   white-space: nowrap;
 }
 
+.content-item.dark td:nth-child(5) {
+  color: #bbbbbb;
+}
+
 .content-item img {
   display: block;
   width: 60%;
   height: auto;
   object-fit: cover;
   border-radius: 4px;
-
 }
