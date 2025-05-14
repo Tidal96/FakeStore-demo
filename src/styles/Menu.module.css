@@ -1,10 +1,19 @@
 .menu {
   display: flex;
-  border-radius: 10px;
-  width: 100%;
-  padding: 20px;
-  margin: 10px 0;
   justify-content: space-between;
+  position: fixed;
+  padding: 20px;
+  background-color: white;
+  width: 100%;
+  top: 0;
+  max-width: 1280px;
+  z-index: 1000;
+}
+
+.layout-wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .element {
