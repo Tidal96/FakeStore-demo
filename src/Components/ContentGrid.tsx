@@ -1,15 +1,15 @@
 
 import { ReactNode } from "react";
-import "../styles/ContentGrid.css";
+import "../styles/contentgrid.css";
 import Item from "./Item";
 import { Card, Typography } from "@mui/material";
 type contentGridProps = { title?: string; children: ReactNode };
 function ContentGrid({ title = "List", children }: contentGridProps) {
   return (
-    <>
-      <tbody>
+    
+      <main>
         <Card className="content">
-          <Typography variant="h4" className="cart-header">{title}</Typography>
+          <Typography variant="h2" className="cart-header">{title}</Typography>
           <table className="content-header">
             <tr>
               <th>Title</th>
@@ -20,8 +20,8 @@ function ContentGrid({ title = "List", children }: contentGridProps) {
           </table>
           {children}
         </Card>
-      </tbody>
-    </>
+      </main>
+    
   );
 }
 export default ContentGrid;
