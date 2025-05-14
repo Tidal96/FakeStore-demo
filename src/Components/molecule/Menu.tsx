@@ -4,7 +4,7 @@ import { useState, useContext, createContext } from "react";
 import DropdownMenu from "./DropdownMenu";
 import Switch from "@mui/material/Switch";
 import { Card } from "@mui/material";
-import styles from "../../styles/Menu.module.css";
+import styles from "../../Styles/Menu.module.css";
 import { appContext } from "../../App";
 import { Link } from "react-router-dom";
 
@@ -14,6 +14,7 @@ type MenuProps = {
   selectedItem: string | null;
   setSelectedItem: (selected: string | null) => void;
   showDropdownMenu?: boolean;
+  showSearchField?: boolean;
 };
 
 
@@ -23,35 +24,43 @@ export default function Menu({
   selectedItem,
   setSelectedItem,
   showDropdownMenu = true,
+  showSearchField = true,
 }: MenuProps) {
   const { darkMode, toggleDarkMode } = useContext(appContext);
 
   return (
-    <Card className={styles.menu}>
-      <Link to="/">
-        <h1 className={styles["txt-color"]}>Fake Store</h1>
-      </Link>
-      <div className={styles.element}>
-        <Link to="/cart">
-          <Button className={styles["txt-btn"]}>Cart</Button>
+    <div className={styles["layout-wrapper"]}>
+      <Card className={styles.menu}>
+
+        <Link to="/">
+          <h1 className={styles["txt-color"]}>Fake Store</h1>
         </Link>
+        <div className={styles.element}>
+          <Link to="/cart">
+            <Button className={styles["txt-btn"]}>Cart</Button>
+          </Link>
 
-        {showDropdownMenu && (
-          <div className={styles["category-container"]}>
-            <DropdownMenu
-              selectedItem={selectedItem}
-              setSelectedItem={setSelectedItem}
+          {showDropdownMenu && (
+            <div className={styles["category-container"]}>
+              <DropdownMenu
+                selectedItem={selectedItem}
+                setSelectedItem={setSelectedItem}
+              />
+            </div>
+          )}
+
+          <Switch checked={darkMode} onChange={toggleDarkMode} />
+          {showSearchField && (
+            <SearchField
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
             />
-          </div>
-        )}
+          )}
 
-        <Switch checked={darkMode} onChange={toggleDarkMode} />
-        <SearchField
-          searchQuery={searchQuery}
-          setSearchQuery={setSearchQuery}
-        />
-      </div>
-    </Card>
+        </div>
+
+      </Card>
+    </div>
   );
 }
 
