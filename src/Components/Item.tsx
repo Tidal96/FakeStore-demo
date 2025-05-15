@@ -4,7 +4,7 @@ import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import { IconButton } from "@mui/material";
 import { useContext } from "react";
 import { appContext } from "../App";
-
+import useResponsive from "../hooks/useResponsive";
 interface DataItem {
   id: number;
   img: string;
@@ -13,6 +13,7 @@ interface DataItem {
   price: number;
   description: string;
 }
+
 type itemProps = {
   id: number;
   img: string;
@@ -25,7 +26,7 @@ type itemProps = {
   data: DataItem[];
 };
 
-function Item({
+export default function Item({
   id,
   img,
   title,
@@ -38,16 +39,22 @@ function Item({
 }: itemProps) {
   const navigate = useNavigate();
   const { darkMode } = useContext(appContext);
-
+  const { isXs, isSm, isMd } = useResponsive();
   const handleClickItem = () => {
     const foundItem = data.find((item) => item.id === id);
 
     navigate(`/product/${id}`);
   };
-
+  const responsiveClass = isXs
+    ? "menuXs"
+    : isSm
+      ? "menuSm"
+      : isMd
+        ? "menuMd"
+        : "";
   return (
     <>
-      <table className={`content-item ${darkMode ? "dark" : ""}`}>
+      <table className={`content-item ${darkMode ? "dark" : ""} ${responsiveClass}`}>
         <tr>
           <td onClick={handleClickItem}>
             <img src={img} alt={title} style={{ backgroundColor: "transparent" }} />
@@ -71,4 +78,3 @@ function Item({
     </>
   );
 }
-export default Item;

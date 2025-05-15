@@ -93,3 +93,36 @@
   object-fit: cover;
   border-radius: 4px;
 }
+
+
+
+.content-item.menuXs td:nth-child(2) {
+  font-size: 12px;
+  padding-right: 10px;
+  width: 20%;
+}
+
+.content-item.menuSm td:nth-child(2) {
+  font-size: 13px;
+  padding-right: 20px;
+  width: 18%;
+}
+
+.content-item.menuMd td:nth-child(2) {
+  font-size: 14px;
+  padding-right: 30px;
+  width: 15%;
+}
+
+
+.content-item.menuXs img {
+  width: 40%;
+}
+
+.content-item.menuSm img {
+  width: 50%;
+}
+
+.content-item.menuMd img {
+  width: 60%;
+}
