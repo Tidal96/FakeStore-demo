@@ -5,6 +5,7 @@ import { Button, Snackbar, Alert } from "@mui/material";
 import "../../Styles/product.css";
 import { useContext } from "react";
 import { appContext } from "../../App";
+import useResponsive from "../../hooks/useResponsive";
 interface DataItem {
     id: number;
     title: string;
@@ -21,6 +22,8 @@ export default function Product() {
     const { productId } = useParams<{ productId: string }>();
     const [open, setOpen] = useState(false);
     const { darkMode } = useContext(appContext)
+    const { isXs, isSm, isMd } = useResponsive();
+
     async function fetchProduct() {
         try {
             const response = await fetch(
@@ -52,6 +55,9 @@ export default function Product() {
         if (reason === "click away") return;
         setOpen(false);
     };
+    const productContainerClass = `product-container ${darkMode ? "dark" : ""} ${isXs ? "product-container-xs" : isSm ? "product-container-sm" : isMd ? "product-container-md" : ""}`;
+
+    const containerClass = `container ${darkMode ? "dark" : ""} ${isXs ? "container-xs" : isSm ? "container-sm" : isMd ? "container-md" : ""}`;
 
     return (
         <>
@@ -66,9 +72,8 @@ export default function Product() {
             ></Menu>
 
             {data && (
-
-                <div className={`product-container ${darkMode ? "dark" : ""}`}>
-                    <div className={`container ${darkMode ? "dark" : ""}`}>
+                <div className={productContainerClass}>
+                    <div className={containerClass}>
                         <div key={data.id}>
                             <h3>{data.title}</h3>
                             <p>{data.description}</p>
