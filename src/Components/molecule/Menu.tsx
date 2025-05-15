@@ -29,9 +29,8 @@ export default function Menu({
   const { darkMode, toggleDarkMode } = useContext(appContext);
 
   return (
-    <div className={styles["layout-wrapper"]}>
-      <Card className={styles.menu}>
-
+    <Card className={styles.menu} elevation={0}>
+      <Card className={styles["layout-wrapper"]} elevation={0}>
         <Link to="/">
           <h1 className={styles["txt-color"]}>Fake Store</h1>
         </Link>
@@ -58,9 +57,8 @@ export default function Menu({
           )}
 
         </div>
-
       </Card>
-    </div>
+    </Card>
   );
 }
 
