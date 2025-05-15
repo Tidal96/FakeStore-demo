@@ -9,7 +9,16 @@
   display: flex;
   justify-content: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
+
+.menuXs {
+  padding: 0 10px;
+}
+
+
+.menuSm {
+  padding: 0 15px;
 }
 
 .layout-wrapper {
@@ -22,11 +31,29 @@
   box-sizing: border-box;
 }
 
+.wrapperXs {
+  padding: 10px;
+}
+
+.wrapperSm {
+  padding: 15px;
+}
+
 .element {
   display: flex;
   align-items: center;
   padding-top: 13px;
   gap: 20px;
+}
+
+.elementXs {
+  padding-top: 5px;
+  gap: 10px;
+}
+
+.elementSm {
+  padding-top: 8px;
+  gap: 15px;
 }
 
 .txt-color {
@@ -39,4 +66,20 @@
 
 .category-container:hover * {
   color: aliceblue;
+}
+
+
+.mobileSearch {
+  width: 100px; 
+}
+
+
+:global(.dark-mode) .menu,
+:global(.dark-mode) .layout-wrapper {
+  background-color: #333;
+  color: white;
+}
+
+:global(.dark-mode) .txt-color {
+  color: #ffaa55;
 }
