@@ -4,7 +4,7 @@ import Item from "../Components/Item";
 import ContentGrid from "./ContentGrid";
 import "../Styles/homepage.css";
 import { useQuery } from "@tanstack/react-query";
-
+import useResponsive from "../hooks/useResponsive";
 interface DataItem {
   id: number;
   title: string;
@@ -17,6 +17,7 @@ interface DataItem {
 export default function Homepage() {
   const [selectedItem, setSelectedItem] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const { isXs, isSm, isMd, isLg } = useResponsive();
 
   const {
     data = [],
@@ -44,6 +45,12 @@ export default function Homepage() {
     });
   }, [data, searchQuery, selectedItem]);
 
+  const loadingClass = isXs
+    ? "loading-message-xs"
+    : isSm
+      ? "loading-message-sm"
+      : "loading-message";
+
   return (
     <>
       <Menu
@@ -55,12 +62,7 @@ export default function Homepage() {
 
       <ContentGrid title="List Of Products">
         {loading && (
-          <div style={{
-            width: "100%",
-            textAlign: "center",
-            padding: "2rem 0",
-            fontSize: "1.25rem",
-          }}>
+          <div className={loadingClass}>
             Loading products…
           </div>
         )}
