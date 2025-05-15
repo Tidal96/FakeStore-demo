@@ -1,6 +1,6 @@
 import { ThemeProvider, createTheme } from "@mui/material";
 import "./App.css";
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import Homepage from "./Components/Homepage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from "./Components/Pages/LoginPage";
@@ -11,9 +11,22 @@ export const appContext = createContext({
   toggleDarkMode: () => { },
 });
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(() => {
+    try {
+      const stored = localStorage.getItem("darkMode");
+      return stored ? JSON.parse(stored) : false;
+    }
+    catch (error) {
+      return false;
+    }
+  });
+
+  useEffect(() => {
+    localStorage.setItem("darkMode", JSON.stringify(darkMode));
+  }, [darkMode]);
+
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
+    setDarkMode((prev: boolean) => !prev);
   };
 
   const commonFocusStyles = {
